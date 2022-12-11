@@ -44,25 +44,30 @@ namespace AdventOfCode2022
             foreach (var item in eachCarry)
             {
                 if (item.Length == 0)
-                    initializeMode=false;
-
-                if (initializeMode)
                 {
-                    for (int p = 0; p < stackCount; p++)
-                    {
-                        if (item.Substring(p * 4, 1) == "[")
-                            theStacks.CrateStacks[p].TheList.Insert(0, new Crate((item.Substring(p * 4 + 1, 1))));
-                    }
+                    initializeMode = false;
                 }
                 else
                 {
-                    string[] action = item.Split(" ");
 
-                    for (int moveCount = Int32.Parse(action[1]); moveCount > 0; moveCount--)
+                    if (initializeMode)
                     {
-                        var topCrate = theStacks.CrateStacks[Int32.Parse(action[3])].TheList.Last();
-                        theStacks.CrateStacks[Int32.Parse(action[3])].TheList.Remove(topCrate);
-                        theStacks.CrateStacks[Int32.Parse(action[5])].TheList.Add(topCrate);
+                        for (int p = 0; p < stackCount; p++)
+                        {
+                            if (item.Substring(p * 4, 1) == "[")
+                                theStacks.CrateStacks[p].TheList.Insert(0, new Crate((item.Substring(p * 4 + 1, 1))));
+                        }
+                    }
+                    else
+                    {
+                        string[] action = item.Split(" ");
+
+                        for (int moveCount = Int32.Parse(action[1]); moveCount > 0; moveCount--)
+                        {
+                            var topCrate = theStacks.CrateStacks[Int32.Parse(action[3])-1].TheList.Last();
+                            theStacks.CrateStacks[Int32.Parse(action[3])-1].TheList.Remove(topCrate);
+                            theStacks.CrateStacks[Int32.Parse(action[5])-1].TheList.Add(topCrate);
+                        }
                     }
                 }
             }
@@ -94,7 +99,7 @@ namespace AdventOfCode2022
         [Fact]
         public void Introduction1()
         {
-            SolvePart1(File.ReadAllText("Day5_Introduction.txt"), 3, "CMX");
+            SolvePart1(File.ReadAllText("Day5_Introduction.txt"), 3, "CMZ");
         }
 
         [Fact]
