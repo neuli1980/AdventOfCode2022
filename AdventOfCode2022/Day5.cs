@@ -56,23 +56,23 @@ namespace AdventOfCode2022
                 }
                 else
                 {
-//                    string[] action = item.Split((new string[] { "move ", " from ", " to " });
+                    string[] action = item.Split(" ");
+
+                    for (int moveCount = Int32.Parse(action[1]); moveCount > 0; moveCount--)
+                    {
+                        var topCrate = theStacks.CrateStacks[Int32.Parse(action[3])].TheList.Last();
+                        theStacks.CrateStacks[Int32.Parse(action[3])].TheList.Remove(topCrate);
+                        theStacks.CrateStacks[Int32.Parse(action[5])].TheList.Add(topCrate);
+                    }
                 }
             }
 
             //List<ElvePair> pairs = new List<ElvePair>();
-            string actual = "XXX";
-            //foreach (var item in eachCarry)
-            //{
-            //    pairs.Add(new ElvePair(item));
-            //}
-
-            //foreach (var item in pairs)
-            //{
-            //    if (item.Elve1.StartingSection <= item.Elve2.StartingSection && item.Elve1.EndingSection >= item.Elve2.EndingSection ||
-            //        item.Elve2.StartingSection <= item.Elve1.StartingSection && item.Elve2.EndingSection >= item.Elve1.EndingSection)
-            //        sum++;
-            //}
+            string actual = "";
+            foreach (var item in theStacks.CrateStacks)
+            {
+                actual += item.TheList.Last().Name;
+            }
 
             Xunit.Assert.Equal(result, actual);
         }
