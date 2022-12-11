@@ -84,14 +84,56 @@ namespace AdventOfCode2022
 
         private void SolvePart2(string input, int stackCount, string result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
-            string actual = "XXX";
-            //foreach (var item in pairs)
-            //{
-            //    if (item.Elve1.StartingSection <= item.Elve2.EndingSection && item.Elve1.EndingSection >= item.Elve2.StartingSection)
-            //        sum++;
-            //}
+            Stacks theStacks = new Stacks(stackCount);
+
+            bool initializeMode = true;
+            foreach (var item in eachCarry)
+            {
+                if (item.Length == 0)
+                {
+                    initializeMode = false;
+                }
+                else
+                {
+
+                    if (initializeMode)
+                    {
+                        for (int p = 0; p < stackCount; p++)
+                        {
+                            if (item.Substring(p * 4, 1) == "[")
+                                theStacks.CrateStacks[p].TheList.Insert(0, new Crate((item.Substring(p * 4 + 1, 1))));
+                        }
+                    }
+                    else
+                    {
+                        string[] action = item.Split(" ");
+                        List<Crate> tempList = new List<Crate>();
+
+                        for (int moveCount = Int32.Parse(action[1]); moveCount > 0; moveCount--)
+                        {
+                            var topCrate = theStacks.CrateStacks[Int32.Parse(action[3]) - 1].TheList.Last();
+                            theStacks.CrateStacks[Int32.Parse(action[3]) - 1].TheList.Remove(topCrate);
+                            tempList.Add(topCrate);
+                        }
+                        for (int moveCount = Int32.Parse(action[1]); moveCount > 0; moveCount--)
+                        {
+                            var topCrate = tempList.Last();
+                            tempList.Remove(topCrate);
+                            theStacks.CrateStacks[Int32.Parse(action[5]) - 1].TheList.Add(topCrate);
+                        }
+
+                    }
+                }
+            }
+
+            //List<ElvePair> pairs = new List<ElvePair>();
+            string actual = "";
+            foreach (var item in theStacks.CrateStacks)
+            {
+                actual += item.TheList.Last().Name;
+            }
 
             Xunit.Assert.Equal(result, actual);
         }
@@ -105,21 +147,21 @@ namespace AdventOfCode2022
         [Fact]
         public void Introduction2()
         {
-            SolvePart2(File.ReadAllText("Day5_Introduction.txt"), 3, "");
+            SolvePart2(File.ReadAllText("Day5_Introduction.txt"), 3, "MCD");
         }
 
         [Fact]
         public void PuzzlePart1()
         {
 
-            SolvePart1(File.ReadAllText("Day5_Puzzle.txt"), 9, "");
+            SolvePart1(File.ReadAllText("Day5_Puzzle.txt"), 9, "ZWHVFWQWW");
         }
 
         [Fact]
         public void PuzzlePart2()
         {
 
-            SolvePart2(File.ReadAllText("Day5_Puzzle.txt"), 9, "");
+            SolvePart2(File.ReadAllText("Day5_Puzzle.txt"), 9, "HZFZCCWWV");
         }
     }
 }
