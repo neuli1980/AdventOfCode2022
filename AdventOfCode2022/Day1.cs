@@ -5,7 +5,7 @@ namespace AdventOfCode2022
         [Fact]
         public void Introduction1()
         {
-            SolvePart1(File.ReadAllText("Day1_Introduction.txt"), 24000);
+            SolvePart1(File.ReadAllText("Day1_Introduction.bin"), 24000);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace AdventOfCode2022
         [Fact]
         public void Introduction2()
         {
-            SolvePart2(File.ReadAllText("Day1_Introduction.txt"), 45000);
+            SolvePart2(File.ReadAllText("Day1_Introduction.bin"), 45000);
         }
 
         [Fact]
