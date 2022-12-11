@@ -25,7 +25,7 @@
 
 
   <ItemGroup>
-    <None Update="Day1_Introduction.bin">
+    <None Update="Day1_Introduction.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Day1_Introduction.txt">

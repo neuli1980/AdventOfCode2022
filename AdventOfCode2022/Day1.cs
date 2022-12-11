@@ -5,7 +5,7 @@ namespace AdventOfCode2022
         [Fact]
         public void Introduction1()
         {
-            SolvePart1(File.ReadAllText("Day1_Introduction.bin"), 24000);
+            SolvePart1(File.ReadAllText("Day1_Introduction.txt"), 24000);
         }
 
         [Fact]
@@ -16,7 +16,7 @@ namespace AdventOfCode2022
 
         private void SolvePart1(string input, int result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
             int maxSum = 0;
             int curSum = 0;
@@ -40,7 +40,7 @@ namespace AdventOfCode2022
         [Fact]
         public void Introduction2()
         {
-            SolvePart2(File.ReadAllText("Day1_Introduction.bin"), 45000);
+            SolvePart2(File.ReadAllText("Day1_Introduction.txt"), 45000);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace AdventOfCode2022
 
         private void SolvePart2(string input, int result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
             List<int> firstThree = new List<int>();
             int curSum = 0;
