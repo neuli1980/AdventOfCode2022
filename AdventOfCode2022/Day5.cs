@@ -61,7 +61,7 @@ namespace AdventOfCode2022
             }
 
             //List<ElvePair> pairs = new List<ElvePair>();
-            int sum = 0;
+            string actual = "XXX";
             //foreach (var item in eachCarry)
             //{
             //    pairs.Add(new ElvePair(item));
@@ -74,47 +74,47 @@ namespace AdventOfCode2022
             //        sum++;
             //}
 
-            Xunit.Assert.Equal(result, sum);
+            Xunit.Assert.Equal(result, actual);
         }
 
-        private void SolvePart2(string input, int result)
+        private void SolvePart2(string input, int stackCount, string result)
         {
             string[] eachCarry = input.Split("\r\n");
 
-
+            string actual = "XXX";
             //foreach (var item in pairs)
             //{
             //    if (item.Elve1.StartingSection <= item.Elve2.EndingSection && item.Elve1.EndingSection >= item.Elve2.StartingSection)
             //        sum++;
             //}
 
-            Xunit.Assert.Equal(result, sum);
+            Xunit.Assert.Equal(result, actual);
         }
 
         [Fact]
         public void Introduction1()
         {
-            SolvePart1(introductionString, 2);
+            SolvePart1(introductionString,3, "CMX");
         }
 
         [Fact]
         public void Introduction2()
         {
-            SolvePart2(introductionString, 4);
+            SolvePart2(introductionString,3, "");
         }
 
         [Fact]
         public void PuzzlePart1()
         {
 
-            SolvePart1(puzzleString, 413);
+            SolvePart1(puzzleString,9, "");
         }
 
         [Fact]
         public void PuzzlePart2()
         {
 
-            SolvePart2(puzzleString, 806);
+            SolvePart2(puzzleString,9, "");
         }
 
         string introductionString = @"    [D]    
