@@ -10,7 +10,7 @@ namespace AdventOfCode2022
 
         private void SolvePart1(string input, int result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
             int sum = 0;
             foreach (var item in eachCarry)
@@ -33,7 +33,7 @@ namespace AdventOfCode2022
 
         private void SolvePart2(string input, int result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
             string intersectedRucksacks = String.Empty;
             int sum = 0;

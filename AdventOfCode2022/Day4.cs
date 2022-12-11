@@ -29,7 +29,7 @@ namespace AdventOfCode2022
 
         private void SolvePart1(string input, int result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
             List<ElvePair> pairs = new List<ElvePair>();
             int sum = 0;
@@ -50,7 +50,7 @@ namespace AdventOfCode2022
 
         private void SolvePart2(string input, int result)
         {
-            string[] eachCarry = input.Split("\r\n");
+            string[] eachCarry = input.Split("\n");
 
             List<ElvePair> pairs = new List<ElvePair>();
             int sum = 0;
