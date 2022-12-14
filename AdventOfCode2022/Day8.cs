@@ -19,8 +19,14 @@ public bool IsVisible {get {return Height<=MaxLeft && Height<=MaxTop && Height<=
             string[] eachCarry = input.Split("\n");
 
 int maxSize = eachCarry[0].Lenght;
-Tree[,] trees = new Tree[0..massive,0..maxSize];
-            
+Tree[,] trees = new Tree[maxSize,maxSize];
+
+int curLine=0;            
+foreach (string carry in eachCarry)
+{
+for (int i = 0; i<maxSize;i++)
+{}
+} 
             int actual = 11111;
 
             Xunit.Assert.Equal(result, actual);
